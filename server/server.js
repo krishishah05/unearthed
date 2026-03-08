@@ -1,13 +1,11 @@
 import express from 'express'
+import cors from 'cors'
 import './config/dotenv.js'
 import giftsRouter from './routes/gifts.js'
 
 const app = express()
 
-// Serve static files from the built client output
-app.use('/public', express.static('./public'))
-app.use('/scripts', express.static('./public/scripts'))
-app.use(express.static('./public'))
+app.use(cors())
 
 // Root route - API status
 app.get('/', (req, res) => {
@@ -16,11 +14,6 @@ app.get('/', (req, res) => {
 
 // Gifts routes
 app.use('/gifts', giftsRouter)
-
-// 404 fallback
-app.use((req, res) => {
-  res.status(404).sendFile('404.html', { root: './public' })
-})
 
 const PORT = process.env.PORT || 3001
 
