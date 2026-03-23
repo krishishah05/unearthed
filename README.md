@@ -1,34 +1,36 @@
-Week 1 Lab: UnEarthed, Part 1 | Week 2 Lab: UnEarthed, Part 2 | Week 3 Lab: UnEarthed, Part 3
+Week 1 Lab: UnEarthed, Part 1 | Week 2 Lab: UnEarthed, Part 2 | Week 3 Lab: UnEarthed, Part 3 | Week 5 Lab: UnEarthed, Part 4
 
 Submitted by: Krishi Shah
 
 ## Lab Description
 
-UnEarthed is a gift discovery web app built with React, Express, and PostgreSQL. In this third iteration, the app was migrated from vanilla JavaScript to a React frontend that communicates with a Node/Express backend API using `useEffect`, `async/await`, and React Router.
+UnEarthed is a gift discovery web app built with React, Express, and PostgreSQL. In this fourth and final iteration, full CRUD support was added — users can now create, update, and delete gifts in addition to browsing and viewing them.
 
 ## Required Features
 
 The following **required** features are completed:
 
 - [x] The web app uses React to display data from the API.
-- [x] The web app is connected to a PostgreSQL database with an appropriately structured gifts table.
+- [x] The web app is connected to a PostgreSQL database, with an appropriately structured gifts table.
 - [x] The web app displays the title and logo of UnEarthed.
 - [x] The web app displays a list of gifts that have been submitted, including at least the name, price point, audience, and image.
 - [x] The user can click on each item in the list to see a detail view of it, including all database fields.
+- [x] The user can edit or delete an item from the detail page.
 - [x] Each gift detail page has its own unique URL.
+- [x] The user can create a new item to add to UnEarthed, which is then displayed on the home page upon creation.
 
 ## Stretch Features
 
 The following **stretch** features are implemented:
 
-- [ ] Users can search for a specific gift.
-- [ ] Users can filter gifts by one or more feature (such as audience or price point).
+- [ ] The user can edit or delete a gift from the home page.
 
 ## Notes
 
-- Used `cors` middleware to allow cross-origin requests between the React frontend (Vite dev server) and the Express backend.
-- Replaced static HTML/JS client with a React app using React Router for client-side routing.
-- Backend routes updated to return JSON responses consumed by the React frontend via `fetch`.
+- Added `createGift`, `updateGift`, and `deleteGift` controller functions with corresponding POST, PATCH, and DELETE routes.
+- Added `express.json()` middleware to parse JSON request bodies.
+- Extracted card rendering into a `Card.jsx` component with a link to the edit page.
+- Created `CreateGift.jsx` and `EditGift.jsx` pages using controlled form inputs and `fetch` with appropriate HTTP methods.
 
 ## License
 
